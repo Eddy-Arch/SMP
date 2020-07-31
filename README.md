@@ -11,5 +11,14 @@
 ### feel free to contribute and modify this as you wish.
 
 ## installation
-### there is no makefile, because that would be too easy :)
-#### to compile, you must use gcc, name the binary what you want, make it executable, and move it to your /bin/ directory
+### running the install script
+#### to install the program, the folllowing commands must be run
+#### first, make sure the script is executable
+```chmod +x install.sh```
+#### then, execute the scirpt
+``` ./install.sh```
+
+## dependencies
+- mpc
+- mpd
+
