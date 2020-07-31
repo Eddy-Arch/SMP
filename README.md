@@ -9,3 +9,7 @@
 
 ## contributing
 ### feel free to contribute and modify this as you wish.
+
+## installation
+### there is no makefile, because that would be too easy :)
+#### to compile, you must use gcc, name the binary what you want, make it executable, and move it to your /bin/ directory
