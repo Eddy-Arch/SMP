@@ -4,9 +4,6 @@
 main()
 {
 	char c;
-	char *strcat(char *dest, const char *src);
-	char str[80];
-
 		
 	printf("-Simple MPD Player-\n");
 	for (;;)
