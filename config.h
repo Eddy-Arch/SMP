@@ -8,6 +8,7 @@ char *downinterval = "10";
 const char skipsong = 'n';
 const char prevsong = 'p';
 const char toggle = ' ';
+const char clearconsole = 'c';
 
 char *strcat(char *dest, const char *src);
 void increase()
