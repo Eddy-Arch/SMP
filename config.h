@@ -12,8 +12,6 @@ const char toggle = ' ';
 const char clearconsole = 'c';
 const char search_play = 's';
 
-//stuff you dont need to touch :)
-const char *songname;
 
 char *strcat(char *dest, const char *src);
 void increase()
@@ -32,12 +30,4 @@ void decrease()
 	system(str);
 
 }
-void searchsong()
-{
-	char s[1024];
-	scanf("%s", s);
-	char str[80];
-	strcpy(str, "mpc searchplay ");
-	strcat(str, s);
-	system(str);
-}
+
