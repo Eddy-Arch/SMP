@@ -1,4 +1,3 @@
-//volume increase intervals
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,6 +10,8 @@ const char prevsong = 'p';
 const char toggle = ' ';
 const char clearconsole = 'c';
 const char search_play = 's';
+//change the prompt
+char cprompt[1024] = "SMP console ~$ ";
 
 
 char *strcat(char *dest, const char *src);
