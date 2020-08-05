@@ -72,10 +72,12 @@ int main()
 		if (c == fastforward)
 		{
 			fastitforward();
+			printf(cprompt);
 		}
 		if (c == fastbackward)
 		{
 			fastitbackward();
+			printf(cprompt);
 		}
 	}
 }
