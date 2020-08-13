@@ -17,6 +17,7 @@ const char search_play = 's';
 const char nowplaying = 't';
 const char fastforward = 'f';
 const char fastbackward = 'b';
+const char list_title = 'l';
 //change the prompt
 char cprompt[1024] = "SMP console ~$ ";
 

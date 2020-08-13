@@ -24,7 +24,7 @@ int main()
 			break;
 		case 'h':
 			printf(cprompt);
-			printf("Help Page:\n \t welcome to the help page! heres a list of the available commands: \n\t + = increases the volume. instructing more than one + increases it by the amount of + specified \n\t - = same thing as +, but decreases the volume. \n\t <spacebar> = pause/unpause the music \n\t n = next song \n\t p = previous song \n\t s <args> = searches and plays the song \n\t CTRL+L also clears the chat. \n\t t = list the song thats being played\n\t f to fast forward, b to fast backward \n\t v/V = enable/disable verbosity \n\n edit keybinds: \n\t to edit the keybinds edit your config.h file.\n");
+			printf("Help Page:\n \t welcome to the help page! heres a list of the available commands: \n\t + = increases the volume. instructing more than one + increases it by the amount of + specified \n\t - = same thing as +, but decreases the volume. \n\t <spacebar> = pause/unpause the music \n\t n = next song \n\t p = previous song \n\t s <args> = searches and plays the song \n\t CTRL+L also clears the chat. \n\t t = list the song thats being played\n\t f to fast forward, b to fast backward \n\t v/V = enable/disable verbosity \n\t l = list all songs \n\n edit keybinds: \n\t to edit the keybinds edit your config.h file.\n");
 			break;
 		case 'v':
 			verbose = true;
@@ -102,6 +102,11 @@ int main()
 		if (c == fastbackward)
 		{
 			fastitbackward();
+			printf(cprompt);
+		}
+		if (c == list_title)
+		{
+			system("mpc list Title");
 			printf(cprompt);
 		}
 	}
