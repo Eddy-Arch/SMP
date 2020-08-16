@@ -6,6 +6,7 @@ int main()
 {
 	bool verbose = false;
 	char c;
+	printf("\e[1;1H\e[2J");
 	printf("-Simple MPD Player-\n");
 
 	for (;;)
