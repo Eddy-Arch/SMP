@@ -8,7 +8,7 @@ char *downinterval = "10";
 char *seekforwardint = "10";
 char *seekbackint = "10";
 
-//keybinds
+//keybinds//
 const char skipsong = 'n';
 const char prevsong = 'p';
 const char toggle = ' ';
