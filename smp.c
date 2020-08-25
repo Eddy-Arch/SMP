@@ -2,9 +2,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "config.h"
+#include <termios.h>
+#include <string.h>
+#include <unistd.h>
 int main()
 {
 	bool verbose = false;
+	bool raw = false;
 	char c;
 	printf("\e[1;1H\e[2J");
 	printf("-Simple MPD Player-\n");
@@ -37,6 +41,22 @@ int main()
 			printf("verbose = off\n");
 			printf("%s", cprompt);
 			break;
+		case 'r':
+			raw = true;
+			//tty_raw_mode();	
+			enableRawMode();
+			printf("raw mode on");
+			printf("%s", cprompt);
+			break;
+		case 'R':
+			raw = false;
+			disableRawMode();
+			printf("raw mode off");
+			printf("%s", cprompt);
+			break;
+
+
+			
 		case 'q':
 			exit(1);
 		case 'Q':
@@ -136,4 +156,28 @@ int main()
 			system("mpc playlist");
 		}
 	}
+}
+struct termios orig_termios;
+void disableRawMode() {
+  tcsetattr(STDIN_FILENO, TCSAFLUSH, &orig_termios);
+}
+void enableRawMode() {
+  tcgetattr(STDIN_FILENO, &orig_termios);
+  atexit(disableRawMode);
+  struct termios raw = orig_termios;
+  raw.c_lflag &= ~(ECHO | ICANON);
+  tcsetattr(STDIN_FILENO, TCSAFLUSH, &raw);
+}
+void tty_raw_mode(void)
+{
+	struct termios tty_attr;
+     
+	tcgetattr(0,&tty_attr);
+
+	/* Set raw mode. */
+	tty_attr.c_lflag &= (~(ICANON|ECHO));
+	tty_attr.c_cc[VTIME] = 0;
+	tty_attr.c_cc[VMIN] = 1;
+     
+	tcsetattr(0,TCSANOW,&tty_attr);
 }
