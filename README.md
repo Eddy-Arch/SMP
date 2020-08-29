@@ -1,3 +1,4 @@
+![Alt text](smp.png?raw=true "Simple Music Player")
 # Simple MPD player
 ## a Simple MPD player written in C
 
@@ -21,6 +22,4 @@
 ## dependencies
 - mpc
 - mpd
-
-![Alt text](smp.png?raw=true "Simple Music Player")
 
