@@ -22,3 +22,5 @@
 - mpc
 - mpd
 
+![Alt text](smp.png?raw=true "Simple Music Player")
+

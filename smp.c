@@ -41,7 +41,7 @@ int main()
 			printf("verbose = off\n");
 			printf("%s", cprompt);
 			break;
-		case 'r':
+/*		case 'r':
 			raw = true;
 			//tty_raw_mode();	
 			enableRawMode();
@@ -54,13 +54,28 @@ int main()
 			printf("raw mode off");
 			printf("%s", cprompt);
 			break;
-
+*/
 
 			
 		case 'q':
 			exit(1);
 		case 'Q':
 			exit(1);
+		}
+		if(c == enable_raw && raw == false)
+		{
+			raw = true;
+			//tty_raw_mode();	
+			enableRawMode();
+			printf("raw mode on");
+			printf("%s", cprompt);
+
+		}else if (c == enable_raw && raw == true)
+		{
+			raw = false;
+			disableRawMode();
+			printf("raw mode off");
+			printf("%s", cprompt);
 		}
 
 		if(c == skipsong && verbose == false)
@@ -90,7 +105,7 @@ int main()
 		if (c == clearconsole)
 		{
 			printf("\e[1;1H\e[2J");
-			printf("SMP console ~$ ");
+			printf(cprompt);
 		}
 		char s[1024];
 		
