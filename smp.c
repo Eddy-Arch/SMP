@@ -5,6 +5,7 @@
 #include <termios.h>
 #include <string.h>
 #include <unistd.h>
+#include "func.h"
 int main()
 {
 	bool verbose = false;
@@ -105,7 +106,7 @@ int main()
 		if (c == clearconsole)
 		{
 			printf("\e[1;1H\e[2J");
-			printf(cprompt);
+			printf("%s", cprompt);
 		}
 		char s[1024];
 		
