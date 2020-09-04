@@ -22,5 +22,5 @@ const char play_pos = 'z';
 const char list_playlist = 'd';
 const char enable_raw = 'r';
 //change the prompt
-char cprompt[1024] = "\nSMP console ~$ ";
+char cprompt[] = "\nSMP console ~$ ";
 
