@@ -19,9 +19,9 @@ int main()
 		switch(c = getchar())
 		{
 		case '+':
-			increase();
 			printf("\n");
 			printf("%s", cprompt);
+			increase();
 			break;
 		case '-':
 			printf("\n");
