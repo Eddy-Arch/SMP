@@ -7,6 +7,7 @@
 - minimalistic (no more than 100 LOC)
 - easy to understand (the code is simple)
 - has all the basic features (pause/unpause skip, play previous song, vol up/down)
+- no ncurses (free of gnu/bloat)
 
 ## contributing
 ### feel free to contribute and modify this as you wish.
