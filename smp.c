@@ -32,37 +32,29 @@ int main()
 			printf("%s", cprompt);
 			printf("Help Page:\n \t welcome to the help page! heres a list of the available commands: \n\t + = increases the volume. instructing more than one + increases it by the amount of + specified \n\t - = same thing as +, but decreases the volume. \n\t <spacebar> = pause/unpause the music \n\t n = next song \n\t p = previous song \n\t s <args> = searches and plays the song \n\t CTRL+L also clears the chat. \n\t t = list the song thats being played\n\t f to fast forward, b to fast backward \n\t v/V = enable/disable verbosity \n\t l = list all songs \n\t z = play based on position \n\t d = list all songs in the current playlist \n\n edit keybinds: \n\t to edit the keybinds edit your config.h file.\n");
 			break;
-		case 'v':
-			verbose = true;
-			printf("verbose = on\n");
-			printf("%s", cprompt);
-			break;
-		case 'V':
-			verbose = false;
-			printf("verbose = off\n");
-			printf("%s", cprompt);
-			break;
-/*		case 'r':
-			raw = true;
-			//tty_raw_mode();	
-			enableRawMode();
-			printf("raw mode on");
-			printf("%s", cprompt);
-			break;
-		case 'R':
-			raw = false;
-			disableRawMode();
-			printf("raw mode off");
-			printf("%s", cprompt);
-			break;
-*/
-
-			
 		case 'q':
 			exit(1);
 		case 'Q':
 			exit(1);
 		}
+
+		if(c == enable_verbose && verbose == false)
+		{
+			verbose = true;
+			printf("verbose = on\n");
+			printf("%s", cprompt);
+
+		}else if (c == enable_verbose && verbose == true)
+		{
+			verbose = false;
+			printf("verbose = off\n");
+			printf("%s", cprompt);
+		}
+		//
+		//
+		//
+		//
+		//
 		if(c == enable_raw && raw == false)
 		{
 			raw = true;
@@ -85,7 +77,8 @@ int main()
 			system("mpc -q next");
 		}else if(c == skipsong){
 			printf("%s", cprompt);
-			system("mpc next");
+			system("mpc -q next");
+			system("mpc -f %file%");
 		}
 		if (c == prevsong && verbose == false)
 		{
@@ -93,7 +86,8 @@ int main()
 			system("mpc -q prev");
 		}else if(c == prevsong){
 			printf("%s", cprompt);
-			system("mpc next");
+			system("mpc -q prev");
+			system("mpc -f %file%");
 		}
 		if (c == toggle && verbose == false)
 		{

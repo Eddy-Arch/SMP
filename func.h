@@ -9,7 +9,7 @@ void increase()
 	char str[80];
 	strcpy(str, "mpc volume +");
 	strcat(str, upinterval);
-	strcat(str," |grep volume");
+	strcat(str," |grep volume |cut -d % -f1");
 	system(str);
 
 }
@@ -18,7 +18,7 @@ void decrease()
 	char str[80];
 	strcpy(str, "mpc volume -");
 	strcat(str, downinterval);
-	strcat(str," |grep volume");
+	strcat(str," |grep volume |cut -d % -f1");
 	system(str);
 
 }
