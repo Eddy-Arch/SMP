@@ -140,7 +140,7 @@ int main()
 		if(c == search_play)
 		{
 		headfull_check(headfull);
-		scanf("%s", s);
+		scanf("%1024s", s);
 		printf("%s", cprompt);
 		char str[80];
 		strcpy(str, "mpc -q searchplay ");
