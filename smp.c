@@ -5,7 +5,7 @@
 #include <termios.h>
 #include <string.h>
 #include <unistd.h>
-#include "func.h"
+#include "src/func.h"
 int main()
 {
 	bool verbose = false;
