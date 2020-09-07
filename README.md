@@ -25,4 +25,4 @@
 - mpd
 
 ## documentation
-[docs](keybinds.md)
+[docs](KEYBINDS.md)
