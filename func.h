@@ -40,4 +40,11 @@ void fastitbackward()
 	system(str);
 
 }
-
+void headfull_check(bool headfull)
+{
+	if (headfull == true)
+	{
+		printf("\e[1;1H\e[2J");
+		printf("\n");
+	}
+}

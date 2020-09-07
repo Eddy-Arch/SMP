@@ -22,6 +22,7 @@ const char play_pos = 'z';
 const char list_playlist = 'd';
 const char enable_raw = 'r';
 const char enable_verbose = 'v';
+const char enable_headfull = 'H';
 //change the prompt
 char cprompt[] = "\nSMP console ~$ ";
 

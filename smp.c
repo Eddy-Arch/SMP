@@ -10,6 +10,7 @@ int main()
 {
 	bool verbose = false;
 	bool raw = false;
+	bool headfull = false;
 	char c;
 	printf("\e[1;1H\e[2J");
 	printf("-Simple MPD Player-\n");
@@ -19,11 +20,13 @@ int main()
 		switch(c = getchar())
 		{
 		case '+':
+			headfull_check(headfull);
 			printf("\n");
 			printf("%s", cprompt);
 			increase();
 			break;
 		case '-':
+			headfull_check(headfull);
 			printf("\n");
 			printf("%s", cprompt);
 			decrease();
@@ -38,14 +41,35 @@ int main()
 			exit(1);
 		}
 
+		if(c == enable_headfull && headfull == false)
+		{
+			headfull_check(headfull);
+			headfull= true;
+			printf("headfull = on\n");
+			printf("%s", cprompt);
+
+		}else if (c == enable_headfull && headfull == true)
+		{
+			headfull_check(headfull);
+			headfull = false;
+			printf("headfull = off\n");
+			printf("%s", cprompt);
+		}
+		//
+		//
+		//
+		//
+
 		if(c == enable_verbose && verbose == false)
 		{
+			headfull_check(headfull);
 			verbose = true;
 			printf("verbose = on\n");
 			printf("%s", cprompt);
 
 		}else if (c == enable_verbose && verbose == true)
 		{
+			headfull_check(headfull);
 			verbose = false;
 			printf("verbose = off\n");
 			printf("%s", cprompt);
@@ -57,6 +81,7 @@ int main()
 		//
 		if(c == enable_raw && raw == false)
 		{
+			headfull_check(headfull);
 			raw = true;
 			//tty_raw_mode();	
 			enableRawMode();
@@ -65,6 +90,7 @@ int main()
 
 		}else if (c == enable_raw && raw == true)
 		{
+			headfull_check(headfull);
 			raw = false;
 			disableRawMode();
 			printf("raw mode off");
@@ -73,32 +99,39 @@ int main()
 
 		if(c == skipsong && verbose == false)
 		{
+			headfull_check(headfull);
 			printf("%s" , cprompt);
 			system("mpc -q next");
 		}else if(c == skipsong){
+			headfull_check(headfull);
 			printf("%s", cprompt);
 			system("mpc -q next");
 			system("mpc -f %file%");
 		}
 		if (c == prevsong && verbose == false)
 		{
+			headfull_check(headfull);
 			printf("%s", cprompt);
 			system("mpc -q prev");
 		}else if(c == prevsong){
+			headfull_check(headfull);
 			printf("%s", cprompt);
 			system("mpc -q prev");
 			system("mpc -f %file%");
 		}
 		if (c == toggle && verbose == false)
 		{
+			headfull_check(headfull);
 			printf("%s", cprompt);
 			system("mpc -q toggle");
 		}else if(c == toggle){
+			headfull_check(headfull);
 			printf("%s", cprompt);
 			system("mpc toggle");
 		}
 		if (c == clearconsole)
 		{
+			headfull_check(headfull);
 			printf("\e[1;1H\e[2J");
 			printf("%s", cprompt);
 		}
@@ -106,7 +139,7 @@ int main()
 		
 		if(c == search_play)
 		{
-
+		headfull_check(headfull);
 		scanf("%s", s);
 		printf("%s", cprompt);
 		char str[80];
@@ -117,31 +150,37 @@ int main()
 		}
 		if( c == 0x0C )
 		{
+			headfull_check(headfull);
 			printf("\e[1;1H\e[2J");
 			printf("%s", cprompt);
 		}
 		if (c == nowplaying)
 		{
+			headfull_check(headfull);
 			system("mpc -f %file%");
 			printf("%s", cprompt);
 		}
 		if (c == fastforward)
 		{
+			headfull_check(headfull);
 			fastitforward();
 			printf("%s", cprompt);
 		}
 		if (c == fastbackward)
 		{
+			headfull_check(headfull);
 			fastitbackward();
 			printf("%s", cprompt);
 		}
 		if (c == list_title)
 		{
+			headfull_check(headfull);
 			system("mpc list Title");
 			printf("%s", cprompt);
 		}
 		if (c == play_pos && verbose == false)
 		{
+		headfull_check(headfull);
 		scanf("%s", s);
 		printf("%s", cprompt);
 		char str[80];
@@ -151,7 +190,7 @@ int main()
 
 
 		}else if(c == play_pos){
-
+			headfull_check(headfull);
 			scanf("%s", s);
 			printf("%s", cprompt);
 			char str[80];
@@ -162,6 +201,7 @@ int main()
 
 		if (c == list_playlist)
 		{
+			headfull_check(headfull);
 			printf("%s", cprompt);
 			system("mpc playlist");
 		}
