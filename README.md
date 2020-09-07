@@ -24,3 +24,6 @@
 - mpc
 - mpd
 
+## documentation
+### please visit
+[a relative link](keybinds.md)
