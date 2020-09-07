@@ -5,9 +5,9 @@
 
 - n | skips the current song
 - p | plays the previous song
-- <space> | pauses/unpauses the song
+- (space) | pauses/unpauses the song
 - c | clears the console
-- s <songname> | search and play the song
+- s (songname) | search and play the song
 - t | show the song thats currently being played
 - f | fast forward
 - b | same thing as f, but backwards

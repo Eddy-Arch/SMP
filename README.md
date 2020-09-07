@@ -25,5 +25,4 @@
 - mpd
 
 ## documentation
-### please visit
-[a relative link](keybinds.md)
+[docs](keybinds.md)
