@@ -32,13 +32,35 @@ int main()
 			decrease();
 			break;
 		case 'h':
-			printf("%s", cprompt);
-			printf("Help Page:\n \t welcome to the help page! heres a list of the available commands: \n\t + = increases the volume. instructing more than one + increases it by the amount of + specified \n\t - = same thing as +, but decreases the volume. \n\t <spacebar> = pause/unpause the music \n\t n = next song \n\t p = previous song \n\t s <args> = searches and plays the song \n\t CTRL+L also clears the chat. \n\t t = list the song thats being played\n\t f to fast forward, b to fast backward \n\t v/V = enable/disable verbosity \n\t l = list all songs \n\t z = play based on position \n\t d = list all songs in the current playlist \n\n edit keybinds: \n\t to edit the keybinds edit your config.h file.\n");
+			printf("\n");
+			const char* helpmsg = "\t\t\t\t\t\tHelp Page:\n \t welcome to the help page! heres a list of the available commands "
+				"\n\t + = increases the volume. instructing more than one + increases it by the amount of + specified" 
+				"\n\t - = same thing as +, but decreases the volume." 
+				"\n\t <spacebar> = pause/unpause the music" 
+				"\n\t n = next song \n\t p = previous song" 
+				"\n\t <args> = searches and plays the song" 
+				"\n\t CTRL+L also clears the chat." 
+				"\n\t t = list the song thats being played" 
+				"\n\t f to fast forward, b to fast backward" 
+				"\n\t v/V = enable/disable verbosity" 
+				"\n\t l = list all songs" 
+				"\n\t z = play based on position" 
+				"\n\t d = list all songs in the current playlist" 
+				"\n\n\t edit keybinds: \n\t to edit the keybinds edit your config.h file.\n";
+
+			printf("%s", helpmsg);
 			break;
 		case 'q':
 			exit(1);
 		case 'Q':
 			exit(1);
+		case 'i':
+			printf("\n");
+			const char* infomsg = "Author: Eddy"
+						"\nversion:";
+			const char* infomsg2 = "\nrepo: https://github.com/eddy-arch/smp";
+			printf("\e[1;1H\e[2J%s %s %s", infomsg, version, infomsg2);
+			printf("%s", cprompt);
 		}
 
 		if(c == enable_headfull && headfull == false)

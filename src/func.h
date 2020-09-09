@@ -48,3 +48,7 @@ void headfull_check(bool headfull)
 		printf("\n");
 	}
 }
+/*
+ * version
+*/
+char version[] = "v1.2.0";
