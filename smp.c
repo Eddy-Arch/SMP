@@ -8,9 +8,9 @@
 #include "src/func.h"
 int main()
 {
-	bool verbose = false;
-	bool raw = false;
-	bool headfull = false;
+	bool verbose = verbose_bool;
+	bool raw = raw_bool;
+	bool headfull = headfull_bool;
 	char c;
 	printf("\e[1;1H\e[2J");
 	printf("-Simple MPD Player-\n");

@@ -25,4 +25,11 @@ const char enable_verbose = 'v';
 const char enable_headfull = 'H';
 //change the prompt
 char cprompt[] = "\nSMP console ~$ ";
+//modes
+//should headfull be enabled by default?
+bool headfull_bool = false;
+//should raw be enabled by default?
+bool raw_bool = false;
+// should verbose be enabled by default?
+bool verbose_bool = false;
 
