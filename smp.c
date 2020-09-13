@@ -166,6 +166,10 @@ int main()
 		if(c == search_play)
 		{
 		headfull_check(headfull);
+		if (raw == true)
+		{
+			printf("search: ");
+		}
 		scanf("%1024s", s);
 		printf("%s", cprompt);
 		char str[80];
