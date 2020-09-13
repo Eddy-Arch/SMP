@@ -15,6 +15,10 @@ int main()
 	printf("\e[1;1H\e[2J");
 	printf("-Simple MPD Player-\n");
 
+	if(raw=true)
+	{
+		enableRawMode();
+	}
 	for (;;)
 	{
 		switch(c = getchar())
