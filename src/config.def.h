@@ -27,9 +27,9 @@ const char enable_headfull = 'H';
 char cprompt[] = "\nSMP console ~$ ";
 //modes
 //should headfull be enabled by default?
-bool headfull_bool = false;
+bool headfull_bool = true;
 //should raw be enabled by default?
-bool raw_bool = false;
+bool raw_bool = true;
 // should verbose be enabled by default?
-bool verbose_bool = false;
+bool verbose_bool = true;
 

@@ -29,7 +29,6 @@ char cprompt[] = "\nSMP console ~$ ";
 //should headfull be enabled by default?
 bool headfull_bool = true;
 //should raw be enabled by default?
-//this feature is currently not functioning as intended. this bug should be ironed out soon. sorry :/
 bool raw_bool = true;
 // should verbose be enabled by default?
 bool verbose_bool = true;
