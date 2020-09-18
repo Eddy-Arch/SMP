@@ -181,7 +181,7 @@ int main()
 			disableRawMode();
 			printf("search: ");
 		}
-		scanf("%[0-9a-zA-Z ]", s);
+		scanf("%1024[0-9a-zA-Z ]", s);
 		printf("%s", cprompt);
 		char str[sizeof(s)];
 		strcpy(str, "mpc -q searchplay \"");
