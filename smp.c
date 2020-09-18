@@ -74,6 +74,7 @@ int main()
 			printf("\e[1;1H\e[2J%s %s %s", infomsg, 
 					version, infomsg2);
 			printf("%s", cprompt);
+			break;
 		}
 
 		if(c == enable_headfull && headfull == false)
@@ -177,14 +178,20 @@ int main()
 		headfull_check(headfull);
 		if (raw == true)
 		{
+			disableRawMode();
 			printf("search: ");
 		}
-		scanf("%1024s", s);
+		scanf("%[0-9a-zA-Z ]", s);
 		printf("%s", cprompt);
-		char str[80];
-		strcpy(str, "mpc -q searchplay ");
+		char str[sizeof(s)];
+		strcpy(str, "mpc -q searchplay \"");
 		strcat(str, s);
+		strcat(str, "\"");
 		system(str);
+		if (raw == true)
+		{
+			enableRawMode();
+		}
 
 		}
 		if( c == 0x0C )
