@@ -11,7 +11,7 @@ char *seekbackint = "10";
 //keybinds//
 const char skipsong = 'n';
 const char prevsong = 'p';
-const char toggle = 0x10;
+const char toggle = ' '; //0x10 for ctrl + p
 const char clearconsole = 'c';
 const char search_play = 's';
 const char nowplaying = 't';
