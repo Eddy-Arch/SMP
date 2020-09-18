@@ -28,6 +28,7 @@ void fastitforward()
 	strcpy(str, "mpc seek +");
 	strcat(str, seekforwardint);
 	strcat(str, " |grep playing");
+	system("mpc |grep -m2 -F '#' |cut -d ' ' -f4-");
 	system(str);
 
 }
@@ -37,6 +38,7 @@ void fastitbackward()
 	strcpy(str, "mpc seek -");
 	strcat(str, seekbackint);
 	strcat(str, " |grep playing");
+	system("mpc |grep -m2 -F '#' |cut -d ' ' -f4-");
 	system(str);
 
 }

@@ -217,6 +217,10 @@ int main()
 			headfull_check(headfull);
 			fastitbackward();
 			printf("%s", cprompt);
+			if(verbose == true)
+			{
+				
+			}
 		}
 		if (c == list_title)
 		{
