@@ -24,6 +24,8 @@ char *seekbackint = "10";
 #define enable_verbose 'v'
 #define enable_headfull 'H'
 #define help_msg 'h'
+#define volume_increase '+'
+#define volume_decrease '-'
 //change the prompt
 char cprompt[] = "\nSMP console ~$ ";
 //modes

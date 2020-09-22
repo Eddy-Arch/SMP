@@ -25,13 +25,13 @@ int main()
 	{
 		switch(c = getchar())
 		{
-		case '+':
+		case volume_increase: 
 			headfull_check(headfull);
 			printf("\n");
 			printf("%s", cprompt);
 			increase();
 			break;
-		case '-':
+		case volume_decrease:
 			headfull_check(headfull);
 			printf("\n");
 			printf("%s", cprompt);
