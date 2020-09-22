@@ -9,20 +9,21 @@ char *seekforwardint = "10";
 char *seekbackint = "10";
 
 //keybinds//
-const char skipsong = 'n';
-const char prevsong = 'p';
-const char toggle = ' '; //0x10 for ctrl + p
-const char clearconsole = 'c';
-const char search_play = 's';
-const char nowplaying = 't';
-const char fastforward = 'f';
-const char fastbackward = 'b';
-const char list_title = 'l';
-const char play_pos = 'z';
-const char list_playlist = 'd';
-const char enable_raw = 'r';
-const char enable_verbose = 'v';
-const char enable_headfull = 'H';
+#define skipsong 'n'
+#define prevsong 'p'
+#define toggle ' ' //0x10 for ctrl + p
+#define clearconsole 'c'
+#define search_play 's'
+#define nowplaying 't'
+#define fastforward 'f'
+#define fastbackward 'b'
+#define list_title 'l'
+#define play_pos 'z'
+#define list_playlist 'd'
+#define enable_raw 'r'
+#define enable_verbose 'v'
+#define enable_headfull 'H'
+#define help_msg 'h'
 //change the prompt
 char cprompt[] = "\nSMP console ~$ ";
 //modes
@@ -33,3 +34,5 @@ bool raw_bool = true;
 // should verbose be enabled by default?
 bool verbose_bool = true;
 
+#define cl_clear 0x0C
+ 

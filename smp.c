@@ -6,12 +6,14 @@
 #include <string.h>
 #include <unistd.h>
 #include "src/func.h"
+
 int main()
 {
 	bool verbose = verbose_bool;
 	bool raw = raw_bool;
 	bool headfull = headfull_bool;
 	char c;
+	char s[1024];
 	printf("\e[1;1H\e[2J");
 	printf("-Simple MPD Player-\n");
 
@@ -35,7 +37,7 @@ int main()
 			printf("%s", cprompt);
 			decrease();
 			break;
-		case 'h':
+		case help_msg:
 			printf("\n");
 			const char* helpmsg = "\t\t\t\t\t\tHelp Page:"
 				"\n\t\t\t\n\n \t\twelcome to the help page! "
@@ -75,160 +77,165 @@ int main()
 					version, infomsg2);
 			printf("%s", cprompt);
 			break;
-		}
+		case search_play:
+			headfull_check(headfull);
+			if (raw == true)
+			{
+				disableRawMode();
+				printf("search: ");
+			}
+			scanf("%1024[0-9a-zA-Z ]", s);
+			printf("%s", cprompt);
+			char str[sizeof(s)];
+			strcpy(str, "mpc -q searchplay \"");
+			strcat(str, s);
+			strcat(str, "\"");
+			system(str);
+			if (raw == true){
+					enableRawMode();
+				}
+			break;
 
-		if(c == enable_headfull && headfull == false)
-		{
+		case nowplaying:
+			headfull_check(headfull);
+			system("mpc -f %file%");
+			printf("%s", cprompt);
+			break;
+
+		case clearconsole:
+			headfull_check(headfull);
+			printf("\e[1;1H\e[2J");
+			printf("%s", cprompt);
+			break;
+
+
+		case list_title:
+			headfull_check(headfull);
+			system("mpc list Title");
+			printf("%s", cprompt);
+			break;
+
+		case fastforward:
+			headfull_check(headfull);
+			fastitforward();
+			printf("%s", cprompt);
+			break;
+
+		case fastbackward:
+			headfull_check(headfull);
+			fastitbackward();
+			printf("%s", cprompt);
+			break;
+
+		case enable_headfull:
+			if (headfull == false){
 			headfull_check(headfull);
 			headfull= true;
 			printf("headfull = on\n");
 			printf("%s", cprompt);
 
-		}else if (c == enable_headfull && headfull == true)
-		{
-			headfull_check(headfull);
-			headfull = false;
-			printf("headfull = off\n");
-			printf("%s", cprompt);
-		}
-		//
-		//
-		//
-		//
-
-		if(c == enable_verbose && verbose == false)
-		{
-			headfull_check(headfull);
-			verbose = true;
-			printf("verbose = on\n");
-			printf("%s", cprompt);
-
-		}else if (c == enable_verbose && verbose == true)
-		{
-			headfull_check(headfull);
-			verbose = false;
-			printf("verbose = off\n");
-			printf("%s", cprompt);
-		}
-		//
-		//
-		//
-		//
-		//
-		if(c == enable_raw && raw == false)
-		{
-			headfull_check(headfull);
-			raw = true;
-			//tty_raw_mode();	
-			enableRawMode();
-			printf("raw mode on");
-			printf("%s", cprompt);
-
-		}else if (c == enable_raw && raw == true)
-		{
-			headfull_check(headfull);
-			raw = false;
-			disableRawMode();
-			printf("raw mode off");
-			printf("%s", cprompt);
-		}
-
-		if(c == skipsong && verbose == false)
-		{
-			headfull_check(headfull);
-			printf("%s" , cprompt);
-			system("mpc -q next");
-		}else if(c == skipsong){
-			headfull_check(headfull);
-			printf("%s", cprompt);
-			system("mpc -q next");
-			system("mpc -f %file%");
-		}
-		if (c == prevsong && verbose == false)
-		{
-			headfull_check(headfull);
-			printf("%s", cprompt);
-			system("mpc -q prev");
-		}else if(c == prevsong){
-			headfull_check(headfull);
-			printf("%s", cprompt);
-			system("mpc -q prev");
-			system("mpc -f %file%");
-		}
-		if (c == toggle && verbose == false)
-		{
-			headfull_check(headfull);
-			printf("%s", cprompt);
-			system("mpc -q toggle");
-		}else if(c == toggle){
-			headfull_check(headfull);
-			printf("%s", cprompt);
-			system("mpc toggle");
-		}
-		if (c == clearconsole)
-		{
-			headfull_check(headfull);
-			printf("\e[1;1H\e[2J");
-			printf("%s", cprompt);
-		}
-		char s[1024];
-		
-		if(c == search_play)
-		{
-		headfull_check(headfull);
-		if (raw == true)
-		{
-			disableRawMode();
-			printf("search: ");
-		}
-		scanf("%1024[0-9a-zA-Z ]", s);
-		printf("%s", cprompt);
-		char str[sizeof(s)];
-		strcpy(str, "mpc -q searchplay \"");
-		strcat(str, s);
-		strcat(str, "\"");
-		system(str);
-		if (raw == true)
-		{
-			enableRawMode();
-		}
-
-		}
-		if( c == 0x0C )
-		{
-			headfull_check(headfull);
-			printf("\e[1;1H\e[2J");
-			printf("%s", cprompt);
-		}
-		if (c == nowplaying)
-		{
-			headfull_check(headfull);
-			system("mpc -f %file%");
-			printf("%s", cprompt);
-		}
-		if (c == fastforward)
-		{
-			headfull_check(headfull);
-			fastitforward();
-			printf("%s", cprompt);
-		}
-		if (c == fastbackward)
-		{
-			headfull_check(headfull);
-			fastitbackward();
-			printf("%s", cprompt);
-			if(verbose == true)
+			}else if (headfull == true)
 			{
-				
+				headfull_check(headfull);
+				headfull = false;
+				printf("headfull = off\n");
+				printf("%s", cprompt);
 			}
-		}
-		if (c == list_title)
-		{
+			break;
+
+		case enable_verbose:
+			if(verbose == false)
+			{
+				headfull_check(headfull);
+				verbose = true;
+				printf("verbose = on\n");
+				printf("%s", cprompt);
+
+			}else if (verbose == true)
+			{
+				headfull_check(headfull);
+				verbose = false;
+				printf("verbose = off\n");
+				printf("%s", cprompt);
+			}
+			break;
+
+		case enable_raw:
+			if(raw == false)
+			{
+				headfull_check(headfull);
+				raw = true;
+				//tty_raw_mode();	
+				enableRawMode();
+				printf("raw mode on");
+				printf("%s", cprompt);
+
+			}else if (raw == true){
+			
+				headfull_check(headfull);
+				raw = false;
+				disableRawMode();
+				printf("raw mode off");
+				printf("%s", cprompt);
+			}
+			break;
+
+
+		case skipsong:
+			if(verbose == false)
+			{
+				headfull_check(headfull);
+				printf("%s" , cprompt);
+				system("mpc -q next");
+			}else{ 
+				headfull_check(headfull);
+				printf("%s", cprompt);
+				system("mpc -q next");
+				system("mpc -f %file%");
+			}
+			break;
+
+
+
+		case prevsong:
+			if (verbose == false)
+			{
+				headfull_check(headfull);
+				printf("%s", cprompt);
+				system("mpc -q prev");
+			}else{
+				headfull_check(headfull);
+				printf("%s", cprompt);
+				system("mpc -q prev");
+				system("mpc -f %file%");
+			}
+			break;
+
+
+		case toggle:
+			if (verbose == false)
+			{
+				headfull_check(headfull);
+				printf("%s", cprompt);
+				system("mpc -q toggle");
+			}else{
+				headfull_check(headfull);
+				printf("%s", cprompt);
+				system("mpc toggle");
+			}
+			break;
+
+
+		case cl_clear:
 			headfull_check(headfull);
-			system("mpc list Title");
+			printf("\e[1;1H\e[2J");
 			printf("%s", cprompt);
-		}
-		if (c == play_pos && verbose == false)
+			break;
+
+
+
+		case play_pos:	
+		if (verbose == false)
 		{
 		headfull_check(headfull);
 		scanf("%s", s);
@@ -239,7 +246,7 @@ int main()
 		system(str);
 
 
-		}else if(c == play_pos){
+		}else{ 
 			headfull_check(headfull);
 			scanf("%s", s);
 			printf("%s", cprompt);
@@ -248,15 +255,23 @@ int main()
 			strcat(str, s);
 			system(str);
 		}
-
-		if (c == list_playlist)
-		{
+		break;
+		
+		case list_playlist:
 			headfull_check(headfull);
 			printf("%s", cprompt);
 			system("mpc playlist");
+			break;
+
+
+
+
+	
 		}
+
 	}
 }
+
 struct termios orig_termios;
 void disableRawMode() {
   tcsetattr(STDIN_FILENO, TCSAFLUSH, &orig_termios);
