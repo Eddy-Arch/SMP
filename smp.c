@@ -5,8 +5,8 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "src/func.h"
 #include "config.h"
+#include "src/func.h"
 
 int main()
 {

@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
 //change increase/decrease interval
 char *upinterval = "10";
 char *downinterval = "10";
