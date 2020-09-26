@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "config.h"
 #include <termios.h>
 #include <string.h>
 #include <unistd.h>
+
 #include "src/func.h"
+#include "config.h"
 
 int main()
 {
@@ -17,7 +18,7 @@ int main()
 	printf("\e[1;1H\e[2J");
 	printf("-Simple MPD Player-\n");
 
-	if(raw=true)
+	if(raw)
 	{
 		enableRawMode();
 	}
@@ -235,27 +236,27 @@ int main()
 
 
 		case play_pos:	
-		if (verbose == false)
-		{
-		headfull_check(headfull);
-		scanf("%s", s);
-		printf("%s", cprompt);
-		char str[80];
-		strcpy(str, "mpc -q play ");
-		strcat(str, s);
-		system(str);
+			if (verbose == false)
+			{
+				headfull_check(headfull);
+				scanf("%s", s);
+				printf("%s", cprompt);
+				char str[80];
+				strcpy(str, "mpc -q play ");
+				strcat(str, s);
+				system(str);
 
 
-		}else{ 
-			headfull_check(headfull);
-			scanf("%s", s);
-			printf("%s", cprompt);
-			char str[80];
-			strcpy(str, "mpc play ");
-			strcat(str, s);
-			system(str);
-		}
-		break;
+			}else{ 
+				headfull_check(headfull);
+				scanf("%s", s);
+				printf("%s", cprompt);
+				char str[80];
+				strcpy(str, "mpc play ");
+				strcat(str, s);
+				system(str);
+			}
+			break;
 		
 		case list_playlist:
 			headfull_check(headfull);
