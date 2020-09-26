@@ -1,5 +1,6 @@
 HEADERS = config.h src/func.h 
 default: smp 
+all: smp
 
 smp.o: smp.c $(HEADERS)
 	gcc -c smp.c -o smp.o
@@ -12,7 +13,7 @@ clean:
 	-rm -f smp 
 
 
-install: 
+install: all 
 	@echo installing executable file to ${DESTDIR}${PREFIX}/bin
 	@mkdir -p ${DESTDIR}${PREFIX}/bin
 	@cp -f smp ${DESTDIR}${PREFIX}/bin
