@@ -15,9 +15,8 @@
 ## installation
 ### using the makefile 
 #### to install the program, the folllowing commands must be run
-#### then, execute the scirpt
 ```  sudo make clean install```
-
+#### this will execute the instructions in the makefile, that are needed to properly install SMP
 ## dependencies
 - mpc
 - mpd
