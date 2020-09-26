@@ -24,3 +24,6 @@
 
 ## documentation
 [docs](KEYBINDS.md)
+
+## screenshots 
+[screenshots](SCREENSHOTS.md)
