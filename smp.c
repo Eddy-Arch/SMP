@@ -96,6 +96,24 @@ int main()
 					enableRawMode();
 				}
 			break;
+		case change_position:
+			headfull_check(headfull);
+			if (raw == true)
+			{
+				disableRawMode();
+				printf("go to: ");
+			}
+			scanf("%1024[0-9a-zA-Z:]", s);
+			printf("%s", cprompt);
+			char str2[sizeof(s)];
+			strcpy(str2, "mpc seek ");
+			strcat(str2, s);
+			strcat(str2, " |grep -m2 -F '#' |cut -d ' ' -f4-");
+			system(str2);
+			if (raw == true){
+					enableRawMode();
+				}
+			break;
 
 		case nowplaying:
 			headfull_check(headfull);
