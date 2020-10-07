@@ -34,5 +34,6 @@ bool raw_bool = true;
 // should verbose be enabled by default?
 bool verbose_bool = true;
 
+//clear the text with ctrl + l
 #define cl_clear 0x0C
  
