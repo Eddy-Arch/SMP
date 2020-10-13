@@ -85,6 +85,8 @@ int main()
 				disableRawMode();
 				printf("search: ");
 			}
+
+
 			scanf("%1024[0-9a-zA-Z ]", s);
 			printf("%s", cprompt);
 			char str[sizeof(s)];
@@ -95,7 +97,9 @@ int main()
 			if (raw == true){
 					enableRawMode();
 				}
+				break;
 			break;
+
 		case change_position:
 			headfull_check(headfull);
 			if (raw == true)
@@ -256,23 +260,42 @@ int main()
 		case play_pos:	
 			if (verbose == false)
 			{
+				if (raw == true)
+				{
+					disableRawMode();
+					printf("search: ");
+				}
 				headfull_check(headfull);
+				printf("go to song pos: ");
 				scanf("%s", s);
 				printf("%s", cprompt);
 				char str[80];
 				strcpy(str, "mpc -q play ");
 				strcat(str, s);
 				system(str);
+			if (raw == true){
+					enableRawMode();
+				}
+				break;
 
 
 			}else{ 
+				if (raw == true)
+				{
+					disableRawMode();
+					printf("search: ");
+				}
 				headfull_check(headfull);
+				printf("go to song pos: ");
 				scanf("%s", s);
 				printf("%s", cprompt);
 				char str[80];
 				strcpy(str, "mpc play ");
 				strcat(str, s);
 				system(str);
+			if (raw == true){
+					enableRawMode();
+				}
 			}
 			break;
 		
