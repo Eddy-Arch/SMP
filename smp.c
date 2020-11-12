@@ -26,6 +26,9 @@ int main()
 	{
 		switch(c = getchar())
 		{
+		case '=':
+			volume_decrease;
+			
 		case volume_increase: 
 			headfull_check(headfull);
 			printf("\n");
