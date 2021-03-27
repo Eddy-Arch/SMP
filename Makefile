@@ -1,4 +1,4 @@
-HEADERS = config.h src/func.h 
+HEADERS = config.h func.h 
 default: smp 
 all: smp
 

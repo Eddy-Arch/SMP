@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 #include "config.h"
-#include "src/func.h"
+#include "func.h"
 
 int main()
 {
