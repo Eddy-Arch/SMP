@@ -1,4 +1,3 @@
-![Alt text](src/smp.png?raw=true "Simple Music Player")
 # Simple MPD player
 ## a Simple MPD player written in C
 

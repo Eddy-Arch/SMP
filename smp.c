@@ -124,7 +124,7 @@ int main()
 
 		case nowplaying:
 			headfull_check(headfull);
-			system("mpc -f %file%");
+			system("mpc -f %title% - %artist%");
 			printf("%s", cprompt);
 			break;
 
