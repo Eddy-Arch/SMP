@@ -24,6 +24,12 @@ void status_changed(MpdObj *mi, ChangedStatusType what)
                 mpd_Song *song = mpd_playlist_get_current_song(mi);
                 if(song)
                 {
+					if(showalbum)
+					{
+						system("./songchange --silent");
+						system("./img.sh /tmp/kunst.jpg");
+						printf("\n");
+					}
                         printf(GREEN"Now playing:"RESET" %s\n %s - %s\n" ,song->title,song->artist,song->album);
                 }
         }
@@ -68,13 +74,6 @@ int main()
                 mpd_send_password(obj);
                 do{
                        
-					if(showalbum)
-					{
-						system("./songchange --silent");
-						system("./img.sh /tmp/kunst.jpg");
-						printf("\n");
-					}
-                        mpd_status_update(obj);
 		switch(c = getchar())
 		{
 		case '=':
@@ -364,6 +363,7 @@ int main()
 
 	
 		}
+                        mpd_status_update(obj);
 
                 }while(!usleep(100000) &&  run);
         }
