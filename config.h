@@ -24,6 +24,7 @@ char *seekbackint = "10";
 #define volume_increase '+'
 #define volume_decrease '-'
 #define change_position 'g'
+#define show_cover 'y'
 //change the prompt
 char cprompt[] = "SMP Console ~$\n";
 //modes

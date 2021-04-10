@@ -3,10 +3,10 @@ default: smp
 all: smp
 
 smp.o: smp.c $(HEADERS)
-	gcc -c smp.c -o smp.o -lmpd -I/usr/include/libmpd-1.0/libmpd/
+	gcc -c smp.c -o smp.o -lmpdclient
 
 smp: smp.o
-	gcc smp.o -o smp -lmpd -I/usr/include/libmpd-1.0/libmpd/
+	gcc smp.o -o smp -lmpdclient
 
 clean:
 	-rm -f smp.o

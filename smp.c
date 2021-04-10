@@ -7,8 +7,14 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <libmpd.h>
-#include <debug_printf.h>
+#include <assert.h>
+#include <mpd/client.h>
+#include <mpd/status.h>
+#include <mpd/entity.h>
+#include <mpd/search.h>
+#include <mpd/tag.h>
+#include <mpd/message.h>
+#include "getsong.c"
 #define RED "\x1b[31;01m"
 #define DARKRED "\x1b[31;06m"
 #define RESET "\x1b[0m"
@@ -17,53 +23,10 @@
 
 #include "config.h"
 #include "src/func.h"
-char songtitle;
-char songalbum;
-char songartist;
-void status_changed(MpdObj *mi, ChangedStatusType what)
-{
-        if(what&MPD_CST_SONGID)
-        {
-                mpd_Song *song = mpd_playlist_get_current_song(mi);
-                if(song)
-                {
-					if(showalbum)
-					{
-						system("./songchange --silent");
-						system("./img.sh /tmp/kunst.jpg");
-						printf("\n");
-					}
-                        printf(GREEN"Now playing:"RESET" %s\n %s - %s\n" ,song->title,song->artist,song->album);
-						songalbum=song->album;
-                }
-        }
-
-}
 
 int main()
 {
-		//start required shellscripts
-        int run = 1, iport = 6600;
-        char *hostname = getenv("MPD_HOST");
-        char *port = getenv("MPD_PORT");
-        char *password = getenv("MPD_PASSWORD");
-        MpdObj *obj = NULL;
 
-
-        if(!hostname) {
-                hostname = "localhost";
-        }
-        if(port){
-                iport = atoi(port);
-        }
-
-        obj = mpd_new(hostname, iport,password);
-
-        mpd_signal_connect_status_changed(obj,(StatusChangedCallback)status_changed, NULL);
-        mpd_set_connection_timeout(obj, 10);
-
-        if(!mpd_connect(obj))
-        {
 	bool verbose = verbose_bool;
 	bool raw = raw_bool;
 	bool headfull = headfull_bool;
@@ -71,6 +34,18 @@ int main()
 	char s[1024];
 	printf("SMP");
 	printf("\e[1;1H\e[2J");
+	struct mpd_connection *conn;
+
+	conn = mpd_connection_new(NULL, 0, 30000);
+
+	if (mpd_connection_get_error(conn) != MPD_ERROR_SUCCESS)
+		return handle_error(conn);
+
+	{
+		
+	}
+
+
 
 	if(raw)
 	{
@@ -81,10 +56,10 @@ int main()
 
 		switch(c = getchar())
 		{
-		case 'y':
+		case show_cover:
 			system("./songchange --silent");
 			system("./img.sh /tmp/kunst.jpg");
-			mpd_status_update(obj);
+			songmain();
 			break;
 		case '=':
 			volume_decrease;
@@ -369,7 +344,7 @@ int main()
 			break;
 		}
 
-	}
+	
 	}
         return 1;
 }
