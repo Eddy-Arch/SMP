@@ -57,6 +57,7 @@ int main()
 		switch(c = getchar())
 		{
 		case show_cover:
+			system("clear");
 			system("./songchange --silent");
 			system("./img.sh /tmp/kunst.jpg");
 			songmain();
@@ -289,7 +290,7 @@ int main()
 
 		case cl_clear:
 			headfull_check(headfull);
-//			printf("\e[1;1H\e[2J");
+			printf("\e[1;1H\e[2J");
 			printf("%s", cprompt);
 			break;
 
