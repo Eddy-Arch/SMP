@@ -21,6 +21,8 @@
 ## dependencies
 - mpc
 - mpd
+- libmpd
+- w3m
 
 ## documentation
 [docs](KEYBINDS.md)
