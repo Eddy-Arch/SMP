@@ -3,6 +3,7 @@
 ## a Simple MPD player written in C
 
 ### features:
+- album cover previews
 - customizable keybinds (via config.h)
 - minimalistic
 - easy to understand (the code is simple)
