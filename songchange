@@ -180,15 +180,15 @@ update_cover() {
 
 }
 
-pre_exit() {
-	# Get the proccess ID of kunst and kill it.
-    # We are dumping the output of kill to /dev/null
-    # because if the user quits sxiv before they
-    # exit kunst, an error will be shown
-    # from kill and we dont want that
-	kill -9 "$(cat /tmp/kunst.pid)" &>/dev/null
-
-}
+#pre_exit() {
+#	# Get the proccess ID of kunst and kill it.
+#    # We are dumping the output of kill to /dev/null
+#    # because if the user quits sxiv before they
+#    # exit kunst, an error will be shown
+#    # from kill and we dont want that
+#	kill -9 "$(cat /tmp/kunst.pid)" &>/dev/null
+#
+#}
 
 main() {
 
@@ -235,7 +235,6 @@ main() {
 
 			# Save the process ID so that we can kill
 			# sxiv when the user exits the script
-			echo $! >/tmp/kunst.pid
 		fi
 
 		# Waiting for an event from mpd; play/pause/next/previous
@@ -253,5 +252,5 @@ main() {
 # running
 trap "" SIGTSTP
 
-trap pre_exit EXIT
+#trap spre_exit EXIT
 main

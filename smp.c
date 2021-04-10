@@ -17,6 +17,9 @@
 
 #include "config.h"
 #include "src/func.h"
+char songtitle;
+char songalbum;
+char songartist;
 void status_changed(MpdObj *mi, ChangedStatusType what)
 {
         if(what&MPD_CST_SONGID)
@@ -31,6 +34,7 @@ void status_changed(MpdObj *mi, ChangedStatusType what)
 						printf("\n");
 					}
                         printf(GREEN"Now playing:"RESET" %s\n %s - %s\n" ,song->title,song->artist,song->album);
+						songalbum=song->album;
                 }
         }
 
@@ -65,17 +69,23 @@ int main()
 	bool headfull = headfull_bool;
 	char c;
 	char s[1024];
+	printf("SMP");
 	printf("\e[1;1H\e[2J");
 
 	if(raw)
 	{
 		enableRawMode();
 	}
-                mpd_send_password(obj);
-                do{
                        
+	for(;;){
+
 		switch(c = getchar())
 		{
+		case 'y':
+			system("./songchange --silent");
+			system("./img.sh /tmp/kunst.jpg");
+			mpd_status_update(obj);
+			break;
 		case '=':
 			volume_decrease;
 			
@@ -357,16 +367,10 @@ int main()
 			printf("%s", cprompt);
 			system("mpc playlist");
 			break;
-
-
-
-
-	
 		}
-                        mpd_status_update(obj);
 
-                }while(!usleep(100000) &&  run);
-        }
+	}
+	}
         return 1;
 }
 

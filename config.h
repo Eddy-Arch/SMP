@@ -25,14 +25,14 @@ char *seekbackint = "10";
 #define volume_decrease '-'
 #define change_position 'g'
 //change the prompt
-char cprompt[] = "\n";
+char cprompt[] = "SMP Console ~$\n";
 //modes
 //should headfull be enabled by default?
 bool headfull_bool = true;
 //should raw be enabled by default?
 bool raw_bool = true;
 // should verbose be enabled by default?
-bool verbose_bool = false;
+bool verbose_bool = true;
 // should album previews be enabled by default
 bool showalbum = true;
 
