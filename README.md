@@ -14,6 +14,10 @@
 ### feel free to contribute and modify this as you wish.
 
 ## installation
+``vim img.sh``
+set the w3mimgdisplay path to the one used on your system.
+``vim songchange``
+set the music directory to the one you use.
 ### using the makefile 
 #### to install the program, the folllowing commands must be run
 ```  sudo make clean install```
@@ -23,6 +27,8 @@
 - mpd
 - libmpd
 - w3m
+-jq
+
 
 ## documentation
 [docs](KEYBINDS.md)
