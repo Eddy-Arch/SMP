@@ -57,9 +57,9 @@ int main()
 		switch(c = getchar())
 		{
 		case show_cover:
+			printf("\e[1;1H\e[2J");
 			system("./songchange --silent");
 			system("./img.sh /tmp/kunst.jpg");
-			songmain();
 			break;
 		case '=':
 			volume_decrease;

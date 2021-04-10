@@ -26,7 +26,7 @@ char *seekbackint = "10";
 #define change_position 'g'
 #define show_cover 'y'
 //change the prompt
-char cprompt[] = "SMP Console ~$\n";
+char cprompt[] = "\nSMP Console ~$";
 //modes
 //should headfull be enabled by default?
 bool headfull_bool = true;
