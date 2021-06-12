@@ -1,4 +1,5 @@
 # Simple MPD player
+a port of the simple mpd player to the macos operating system.
 ## a Simple MPD player written in C
 
 ### features:

@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <string.h>
 void enableRawMode();
 void tty_raw_mode(void);
 void disableRawMode(); 
 
-char *strcat(char *dest, const char *src);
+//char *strcat(char *dest, const char *src);
 void increase()
 {
 	char str[80];

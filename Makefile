@@ -14,14 +14,14 @@ clean:
 
 
 install: all 
-	@echo installing executable file to ${DESTDIR}${PREFIX}/bin
-	@mkdir -p ${DESTDIR}${PREFIX}/bin
-	@cp -f smp ${DESTDIR}${PREFIX}/bin
-	@chmod 755 ${DESTDIR}${PREFIX}/bin/smp
-	@chmod u+s ${DESTDIR}${PREFIX}/bin/smp
+	@echo installing executable file to ${DESTDIR}${PREFIX}/usr/local/bin
+	@mkdir -p ${DESTDIR}${PREFIX}/usr/local/bin
+	@cp -f smp ${DESTDIR}${PREFIX}/usr/local/bin
+	@chmod 755 ${DESTDIR}${PREFIX}/usr/local/bin/smp
+	@chmod u+s ${DESTDIR}${PREFIX}/usr/local/bin/smp
 
 
 uninstall:
 	@echo removing executable file from ${DESTDIR}${PREFIX}/bin
-	@rm -f ${DESTDIR}${PREFIX}/bin/smp
-	@rm -f ${DESTDIR}${PREFIX}/bin/smp
+	@rm -f ${DESTDIR}${PREFIX}/usr/local/bin/smp
+	@rm -f ${DESTDIR}${PREFIX}/usr/local/bin/smp
